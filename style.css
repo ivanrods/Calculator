@@ -23,22 +23,19 @@ body{
 }
 .app{
     background-color: var(--primary-color-light);
-    width: 38rem;
+    width: 40rem;
     display: grid;
     place-items: center;
     height: 100vh;
-    padding: 2rem;
-
+    padding: 10rem 2rem 0rem 2rem;
+    gap: 4rem;
 }
 header{
     font-family: Arial, Helvetica, sans-serif;
     line-height: 8rem;
     text-align: right;
     width: 100%;
-    color: var(--text-color-light);
-    
-   
-    
+    color: var(--text-color-light);  
 }
 h1{
     font-size: 11rem;
@@ -50,14 +47,12 @@ h2{
 }
 main{
   display: grid;
-  gap:.7rem;
-  width: 100%;
-  
-  
+  gap: 1rem;
+  width: 100%; 
 }
 .row{
     display: flex;
-    gap: .7rem;
+    gap: 1.4rem;
 }
 button{
     width: 8rem;
