@@ -32,7 +32,7 @@ body{
     background-color: var(--primary-color);
     max-width: 39rem;
     display: grid;
-    grid-template-rows: 4% 53%;
+    grid-template-rows: 43% 53%;
     
 }
 header{
