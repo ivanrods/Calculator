@@ -55,44 +55,62 @@ document.querySelectorAll("main button").forEach( function(button) {
   })  
 })
 
+//equal
+equal.addEventListener('click', ()=>{
+    switch(true) {
+        case numbers.includes('+'):
+            CalcSum();
+            break;
+        case numbers.includes('-'):
+            CalcMinus();
+            break;
+        case numbers.includes('x'):
+            CalcMultiply();
+            break;
+        case numbers.includes('/'):
+            CalcDivision();
+            break;
+        default:
+            document.querySelector("h1").innerHTML = arrayNumbers.join('')
+    }
+})
 //function sum
-plus.addEventListener('click', ()=>{
+function CalcSum(){
     let sum = 0
     for(let i = 0; i < arrayNumbers.length; i++){
     sum+=arrayNumbers[i]}
     document.querySelector("h1").innerHTML = sum
-    console.log(sum)
-})
+}
 
 //funtion minus
-minus.addEventListener('click', ()=>{
+function CalcMinus(){
     let min = arrayNumbers[0]
     for(let i = 1; i < arrayNumbers.length; i++) {
         min -= arrayNumbers[i]}
     document.querySelector("h1").innerHTML = min
-})
+}
 
 //function multiply
-multiply.addEventListener('click', ()=>{
+function CalcMultiply(){
     let mult = 1; 
     for(let i = 0; i < arrayNumbers.length; i++) {
     mult *= arrayNumbers[i]
 }
 document.querySelector("h1").innerHTML = mult
-})
+}
 
 //division
-division.addEventListener('click', ()=>{
+function CalcDivision(){
     let div = arrayNumbers[0]
     for(let i = 1; i < arrayNumbers.length; i++) {
         div /= arrayNumbers[i]}
     document.querySelector("h1").innerHTML = div
     console.log(div)
-})
+}
 
 //funtion result
 function result(){
-    document.querySelector("h2").innerHTML = arrayNumbers.join('')
+    document.querySelector("h2").innerHTML = numbers.join('')
 }
 
 //Function clean
@@ -104,7 +122,8 @@ clean.addEventListener('click', ()=>{
 
 //delete
 delet.addEventListener('click', ()=> {
-    arrayNumbers.pop()
-    result()
-    console.log(arrayNumbers)   
+    if(numbers.length >= 0){
+        numbers.pop()
+        numbers.pop()
+    }
 })

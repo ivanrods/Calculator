@@ -30,10 +30,9 @@ body{
 }
 .app{
     background-color: var(--primary-color);
-    max-width: 39rem;
+    max-width: 38rem;
     display: grid;
-    grid-template-rows: 50% 50%;
-    
+    grid-template-rows: 1fr 1fr;  
 }
 header{
     display: flex;
@@ -44,11 +43,11 @@ header{
     padding: 1.3rem;
     justify-content: center;
     color: var(--text-color);
-
 }
 h1{
     font-size: 8rem;
     font-weight: 400;
+    max-width: 35rem;
 }
 h2{
    font-size: 2.7rem;
@@ -60,7 +59,6 @@ main{
   width: 100%;
   padding: 1.5rem;
   justify-content: center;
-
 }
 .row{
     display: flex;
@@ -68,15 +66,14 @@ main{
     margin: auto;
 }
 main button{
-    width: 8rem;
-    height: 7.5rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 1rem;
     color: var(--text-color);
     font-size: 2rem;
     background-color: var(--button-color);
     border: none;
-    cursor: pointer;
-    
+    cursor: pointer;   
 }   
 button:focus{
     -webkit-tap-highlight-color: transparent;
@@ -86,8 +83,7 @@ button:active{
 }
 .buttonBlue{
     background-color: var(--button-blue);
-    color: var(--text-color);
-    
+    color: var(--text-color);  
 }
 header button{
    font-size: 3rem;
@@ -97,24 +93,19 @@ header button{
    color: var(--text-color);
    background-color: transparent;
     border: none;
-   cursor: pointer;
-   
-   
+   cursor: pointer;  
 }
 
 @media (min-width: 600px){
     body{
         background: var(--bg-color);
         padding: 2rem;
-    }
-    
+    }   
     .app{
-        border-radius: 2rem;
-        
+        border-radius: 2rem; 
         grid-template-rows: 1fr 1fr;
     }
-    main button{
-        
+    main button{ 
         width: 6.5rem;
         height: 6rem;
     }
