@@ -31,49 +31,95 @@ const seven = document.getElementById('seven')
 const eight = document.getElementById('eight')
 const nine = document.getElementById('nine')
 
+let number = ''
 let numbers = []
 let arrayNumbers = []
+let preview = []
+
+//states
+let add = false
+let sub = false
+let mult = false
+let div = false
+
 //events
 //function capture
-document.querySelectorAll("main button").forEach( function(button) {
+
+document.querySelectorAll(" main button").forEach( function(button) {
+    button.addEventListener("click", function(event){
+        const vel = event.target || event.srcElement;
+        const n = vel.value;
+        preview.push(n)
+        result()
+    })
+})
+
+document.querySelectorAll(".number").forEach( function(button) {
     
     button.addEventListener("click", function(event) {
     const el = event.target || event.srcElement;
     const id = el.value;
-    numbers.push(id)
-
+    number +=id
+ 
     arrayNumbers = numbers.map(function(item) {
         let num = Number(item)
         if (!isNaN(num)) {
             return num
-        }
+        }    
     })
     arrayNumbers = arrayNumbers.filter(function(item) {
         return item !== undefined
-    }) 
-    result()
-  })  
+    })  
+  })
 })
 
+
+function confg(){
+    numbers.push(number);
+    number = '';
+    numbers = numbers.filter(function(value) {
+        return value !== '';
+    });
+}
+//apetations
+plus.addEventListener('click', ()=>{
+    add = true
+    confg()
+}) 
+minus.addEventListener('click', ()=> {
+    sub = true
+    confg()
+})
+
+multiply.addEventListener('click', ()=> {
+    mult = true
+    confg()
+})
+
+division.addEventListener('click', ()=> {
+    div = true
+    confg()
+})
 //equal
 equal.addEventListener('click', ()=>{
     switch(true) {
-        case numbers.includes('+'):
+        case add == true:
             CalcSum();
             break;
-        case numbers.includes('-'):
+        case sub == true:
             CalcMinus();
             break;
-        case numbers.includes('x'):
+        case mult == true:
             CalcMultiply();
             break;
-        case numbers.includes('/'):
+        case div == true:
             CalcDivision();
             break;
         default:
             document.querySelector("h1").innerHTML = arrayNumbers.join('')
-    }
+    }  
 })
+
 //function sum
 function CalcSum(){
     let sum = 0
@@ -108,9 +154,15 @@ function CalcDivision(){
     console.log(div)
 }
 
+//percentage
+function calcPercentage(){
+    num = arrayNumbers.length
+    let perc = (num / arrayNumbers.length) * 100
+    return perc
+}
 //funtion result
 function result(){
-    document.querySelector("h2").innerHTML = numbers.join('')
+    document.querySelector("h2").innerHTML = preview.join('')
 }
 
 //Function clean
