@@ -42,15 +42,15 @@ let sub = false
 let mult = false
 let div = false
 
-//events
 //function capture
+//preview
+document.querySelectorAll("main button").forEach( function(button) {
 
-document.querySelectorAll(" main button").forEach( function(button) {
     button.addEventListener("click", function(event){
-        const vel = event.target || event.srcElement;
-        const n = vel.value;
-        preview.push(n)
-        result()
+    const vel = event.target || event.srcElement;
+    const n = vel.value;
+    preview.push(n)
+    result()
     })
 })
 
@@ -60,16 +60,6 @@ document.querySelectorAll(".number").forEach( function(button) {
     const el = event.target || event.srcElement;
     const id = el.value;
     number +=id
- 
-    arrayNumbers = numbers.map(function(item) {
-        let num = Number(item)
-        if (!isNaN(num)) {
-            return num
-        }    
-    })
-    arrayNumbers = arrayNumbers.filter(function(item) {
-        return item !== undefined
-    })  
   })
 })
 
@@ -80,11 +70,24 @@ function confg(){
     numbers = numbers.filter(function(value) {
         return value !== '';
     });
+
+    arrayNumbers = numbers.map(function(item) {
+        let num = Number(item)
+        if (!isNaN(num)) {
+            return num
+        }    
+    })
+     
+    arrayNumbers = arrayNumbers.filter(function(item) {
+        return item !== undefined
+    })  
 }
-//apetations
+
+//events
 plus.addEventListener('click', ()=>{
     add = true
     confg()
+    console.log(numbers)
 }) 
 minus.addEventListener('click', ()=> {
     sub = true
@@ -102,6 +105,8 @@ division.addEventListener('click', ()=> {
 })
 //equal
 equal.addEventListener('click', ()=>{
+    confg()
+    console.log(arrayNumbers)
     switch(true) {
         case add == true:
             CalcSum();
@@ -168,6 +173,7 @@ function result(){
 //Function clean
 clean.addEventListener('click', ()=>{
     numbers = []
+    preview = []
     document.querySelector("h1").innerHTML = 0
     document.querySelector("h2").innerHTML = 0
 })
@@ -177,5 +183,7 @@ delet.addEventListener('click', ()=> {
     if(numbers.length >= 0){
         numbers.pop()
         numbers.pop()
+        preview.pop()
+        preview.pop()
     }
 })
